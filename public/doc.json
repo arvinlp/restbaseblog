@@ -1,0 +1,1794 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Rest API Base Blog System Documentation",
+        "description": "Rest API Base Blog System Documentation",
+        "termsOfService": "http:\/\/swagger.io\/terms\/",
+        "contact": {
+            "email": "demo@domain.tld"
+        },
+        "license": {
+            "name": "Github",
+            "url": "https:\/\/github.com\/"
+        },
+        "version": "3.0.7"
+    },
+    "servers": [
+        {
+            "url": "http:\/\/restbaseblog.test",
+            "description": "localhost"
+        }
+    ],
+    "components": {
+        "tags": [
+            {
+                "name": "Auth",
+                "description": null
+            },
+            {
+                "name": "Post",
+                "description": null
+            },
+            {
+                "name": "Category",
+                "description": null
+            },
+            {
+                "name": "User",
+                "description": null
+            }
+        ],
+        "paths": {
+            "\/api\/v1\/auth\/register": {
+                "post": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "register",
+                    "description": "\u0686\u0647\u062a \u0639\u0636\u0648\u06cc\u062a \u06a9\u0627\u0631\u0628\u0631 \u062c\u062f\u06cc\u062f",
+                    "operationId": "_api_v1_auth_register_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "422": {
+                            "description": "Validation Issues"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts": {
+                "get": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "unknown",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u0645\u06a9\u0627\u0646 \u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0645\u0646\u062a\u0634\u0631 \u0646\u0634\u062f\u0647 \u0631\u0627 \u0646\u06cc\u0632 \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_posts_GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts\/trash": {
+                "get": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "trash",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                    "operationId": "_api_v1_posts_trash_GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts\/{id}": {
+                "get": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u067e\u0633\u062a \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                    "operationId": "_api_v1_posts__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                },
+                "put": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_posts__id__PUT",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        },
+                        "405": {
+                            "description": "Validation exception"
+                        }
+                    }
+                },
+                "delete": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. \u0627\u06cc\u0646 \u0631\u0648\u0634 \u062d\u0630\u0641 \u0627\u0632 \u062f\u0648 \u0645\u0631\u062d\u0644\u0647 \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0644\u06cc\u0633\u062a \u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062d\u0630\u0641 \u0648 \u062d\u0630\u0641 \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0631\u0648\u06cc \u0645\u06cc\u06a9\u0646\u062f.",
+                    "operationId": "_api_v1_posts__id__DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful Operation"
+                        },
+                        "404": {
+                            "description": "page Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts\/new": {
+                "post": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "new",
+                    "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u067e\u0633\u062a",
+                    "operationId": "_api_v1_posts_new_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "422": {
+                            "description": "Validation Issues"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts\/{id}\/force": {
+                "delete": {
+                    "tags": [
+                        "Post"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0633\u0631\u06cc\u0639 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_posts__id__force_DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful Operation"
+                        },
+                        "404": {
+                            "description": "page Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories": {
+                "get": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "unknown",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u0645\u06a9\u0627\u0646 \u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0645\u0646\u062a\u0634\u0631 \u0646\u0634\u062f\u0647 \u0631\u0627 \u0646\u06cc\u0632 \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_categories_GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories\/trash": {
+                "get": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "trash",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                    "operationId": "_api_v1_categories_trash_GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories\/trash\/{id}": {
+                "get": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "trash",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u0632\u06cc\u0631 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                    "operationId": "_api_v1_categories_trash__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories\/{id}": {
+                "get": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0628\u0647 \u0647\u0645\u0631\u0627\u0647 \u0632\u06cc\u0631 \u062f\u0633\u062a\u0647\u200c\u0647\u0627\u06cc \u0622\u0646 \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                    "operationId": "_api_v1_categories__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    }
+                },
+                "put": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_categories__id__PUT",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        },
+                        "405": {
+                            "description": "Validation exception"
+                        }
+                    }
+                },
+                "delete": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. \u0627\u06cc\u0646 \u0631\u0648\u0634 \u062d\u0630\u0641 \u0627\u0632 \u062f\u0648 \u0645\u0631\u062d\u0644\u0647 \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0644\u06cc\u0633\u062a \u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062d\u0630\u0641 \u0648 \u062d\u0630\u0641 \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0631\u0648\u06cc \u0645\u06cc\u06a9\u0646\u062f.",
+                    "operationId": "_api_v1_categories__id__DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful Operation"
+                        },
+                        "404": {
+                            "description": "page Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories\/new": {
+                "post": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "new",
+                    "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c",
+                    "operationId": "_api_v1_categories_new_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "422": {
+                            "description": "Validation Issues"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/categories\/{id}\/force": {
+                "delete": {
+                    "tags": [
+                        "Category"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0633\u0631\u06cc\u0639 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_categories__id__force_DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful Operation"
+                        },
+                        "404": {
+                            "description": "page Not Found"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/users": {
+                "get": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "unknown",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0641\u0642\u0637 \u0645\u062e\u062a\u0635 \u0627\u0641\u0631\u0627\u062f \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0645\u06cc\u200c\u0628\u0627\u0634\u062f.",
+                    "operationId": "_api_v1_users_GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        }
+                    ]
+                }
+            },
+            "\/api\/v1\/users\/{id}": {
+                "get": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0635 \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                    "operationId": "_api_v1_users__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "in": "query",
+                            "description": "Filter",
+                            "required": false,
+                            "style": "deepObject",
+                            "explode": true,
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "The dynamic filtering"
+                                }
+                            }
+                        },
+                        {
+                            "name": "sort",
+                            "in": "query",
+                            "description": "sort",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "include",
+                            "in": "query",
+                            "description": "include",
+                            "required": false,
+                            "schema": {
+                                "nullable": "true",
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        }
+                    ]
+                },
+                "put": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                    "operationId": "_api_v1_users__id__PUT",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "404": {
+                            "description": "Not Found"
+                        },
+                        "405": {
+                            "description": "Validation exception"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        }
+                    ]
+                },
+                "delete": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "{id}",
+                    "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f..",
+                    "operationId": "_api_v1_users__id__DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful Operation"
+                        },
+                        "404": {
+                            "description": "page Not Found"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        }
+                    ]
+                }
+            },
+            "\/api\/v1\/users\/new": {
+                "post": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "new",
+                    "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631",
+                    "operationId": "_api_v1_users_new_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Successful Operation"
+                        },
+                        "422": {
+                            "description": "Validation Issues"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        }
+                    ]
+                }
+            }
+        },
+        "schemas": [],
+        "securitySchemes": {
+            "authorization": {
+                "type": "apiKey",
+                "name": "authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": null
+        },
+        {
+            "name": "Post",
+            "description": null
+        },
+        {
+            "name": "Category",
+            "description": null
+        },
+        {
+            "name": "User",
+            "description": null
+        }
+    ],
+    "paths": {
+        "\/api\/v1\/auth\/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "register",
+                "description": "\u0686\u0647\u062a \u0639\u0636\u0648\u06cc\u062a \u06a9\u0627\u0631\u0628\u0631 \u062c\u062f\u06cc\u062f",
+                "operationId": "_api_v1_auth_register_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "422": {
+                        "description": "Validation Issues"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "unknown",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u0645\u06a9\u0627\u0646 \u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0645\u0646\u062a\u0634\u0631 \u0646\u0634\u062f\u0647 \u0631\u0627 \u0646\u06cc\u0632 \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_posts_GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts\/trash": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "trash",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                "operationId": "_api_v1_posts_trash_GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts\/{id}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "{id}",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u067e\u0633\u062a \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                "operationId": "_api_v1_posts__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_posts__id__PUT",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. \u0627\u06cc\u0646 \u0631\u0648\u0634 \u062d\u0630\u0641 \u0627\u0632 \u062f\u0648 \u0645\u0631\u062d\u0644\u0647 \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0644\u06cc\u0633\u062a \u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062d\u0630\u0641 \u0648 \u062d\u0630\u0641 \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0631\u0648\u06cc \u0645\u06cc\u06a9\u0646\u062f.",
+                "operationId": "_api_v1_posts__id__DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful Operation"
+                    },
+                    "404": {
+                        "description": "page Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts\/new": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "new",
+                "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u067e\u0633\u062a",
+                "operationId": "_api_v1_posts_new_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "422": {
+                        "description": "Validation Issues"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts\/{id}\/force": {
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u067e\u0633\u062a \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0633\u0631\u06cc\u0639 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_posts__id__force_DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful Operation"
+                    },
+                    "404": {
+                        "description": "page Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "unknown",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u0645\u06a9\u0627\u0646 \u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0645\u0627\u0645\u06cc \u0645\u0637\u0627\u0644\u0628 \u0645\u0646\u062a\u0634\u0631 \u0646\u0634\u062f\u0647 \u0631\u0627 \u0646\u06cc\u0632 \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_categories_GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories\/trash": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "trash",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                "operationId": "_api_v1_categories_trash_GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories\/trash\/{id}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "trash",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u0632\u06cc\u0631 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c\u0647\u0627\u06cc \u062d\u0630\u0641 \u0634\u062f\u0647 \u0648\u0628\u0644\u0627\u06af \u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0634\u062f\u0647 \u0628\u0627\u0634\u062f.",
+                "operationId": "_api_v1_categories_trash__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories\/{id}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "{id}",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0628\u0647 \u0647\u0645\u0631\u0627\u0647 \u0632\u06cc\u0631 \u062f\u0633\u062a\u0647\u200c\u0647\u0627\u06cc \u0622\u0646 \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                "operationId": "_api_v1_categories__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_categories__id__PUT",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. \u0627\u06cc\u0646 \u0631\u0648\u0634 \u062d\u0630\u0641 \u0627\u0632 \u062f\u0648 \u0645\u0631\u062d\u0644\u0647 \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0644\u06cc\u0633\u062a \u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062d\u0630\u0641 \u0648 \u062d\u0630\u0641 \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0631\u0648\u06cc \u0645\u06cc\u06a9\u0646\u062f.",
+                "operationId": "_api_v1_categories__id__DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful Operation"
+                    },
+                    "404": {
+                        "description": "page Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories\/new": {
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "new",
+                "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c",
+                "operationId": "_api_v1_categories_new_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "422": {
+                        "description": "Validation Issues"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/categories\/{id}\/force": {
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0633\u0631\u06cc\u0639 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_categories__id__force_DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful Operation"
+                    },
+                    "404": {
+                        "description": "page Not Found"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/users": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "unknown",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0645\u0627\u0645\u06cc \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0641\u0642\u0637 \u0645\u062e\u062a\u0635 \u0627\u0641\u0631\u0627\u062f \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0645\u06cc\u200c\u0628\u0627\u0634\u062f.",
+                "operationId": "_api_v1_users_GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    }
+                ]
+            }
+        },
+        "\/api\/v1\/users\/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "{id}",
+                "description": "\u0646\u0645\u0627\u06cc\u0634 \u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0635 \u0628\u0635\u0648\u0631\u062a \u06a9\u0627\u0645\u0644",
+                "operationId": "_api_v1_users__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "The dynamic filtering"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "sort",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "include",
+                        "required": false,
+                        "schema": {
+                            "nullable": "true",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u06a9\u0627\u0631\u0628\u0631 \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f.",
+                "operationId": "_api_v1_users__id__PUT",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "{id}",
+                "description": "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 ID\/\u0634\u0646\u0627\u0633\u0647 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc\u200c \u0627\u0645\u06a9\u0627\u0646 \u062d\u0630\u0641 \u0622\u0646 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631 \u0627\u062d\u0631\u0627\u0632 \u0634\u062f\u0647 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f..",
+                "operationId": "_api_v1_users__id__DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful Operation"
+                    },
+                    "404": {
+                        "description": "page Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    }
+                ]
+            }
+        },
+        "\/api\/v1\/users\/new": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "new",
+                "description": "\u0633\u0627\u062e\u062a\/\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u06a9 \u06a9\u0627\u0631\u0628\u0631",
+                "operationId": "_api_v1_users_new_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "422": {
+                        "description": "Validation Issues"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    }
+                ]
+            }
+        }
+    }
+}
