@@ -28,6 +28,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('code');
+            $table->tinyInteger('status')->default(0);
             $table->timestamp('created_at')->useCurrent();
         });
 

@@ -16,7 +16,7 @@
 
 ۱. کلون کردن پروژه:
 ```bash
-git clone <repo-url>
+git clone https://github.com/arvinlp/restbaseblog.git
 cd restbaseblog
 ```
 ۲. نصب وابستگی‌ها:

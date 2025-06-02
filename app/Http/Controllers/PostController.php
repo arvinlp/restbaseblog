@@ -45,6 +45,13 @@ class PostController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'title' => 'required|string',
+                'short' => 'required|string',
+                'content' => 'required|string',
+                'thumb' => 'string',
+                'status' => 'integer',
+            ]);
             $data = new BlogPost;
             $data->author_id = Auth::user()->id;
             if ($request->has('title'))  $data->title = $request->input('title');
@@ -83,6 +90,13 @@ class PostController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'title' => 'required|string',
+                'short' => 'required|string',
+                'content' => 'required|string',
+                'thumb' => 'string',
+                'status' => 'integer',
+            ]);
             $data = BlogPost::findOrFail($id);
             if ($request->has('title'))  $data->title = $request->input('title', $data->title);
             if ($request->has('short'))  $data->short = $request->input('short', $data->short);

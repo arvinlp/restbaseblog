@@ -45,6 +45,12 @@ class CategoryController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'name' => 'required|string',
+                'content' => 'nullable|string',
+                'parent_id' => 'nullable|exists:blog_categories,id',
+                'status' => 'integer',
+            ]);
             $data = new BlogCategory;
             if ($request->has('name'))      $data->name = $request->input('name');
             if ($request->has('content'))   $data->content = $request->input('content');
@@ -71,6 +77,12 @@ class CategoryController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'name' => 'required|string',
+                'content' => 'nullable|string',
+                'parent_id' => 'nullable|exists:blog_categories,id',
+                'status' => 'integer',
+            ]);
             $data = BlogCategory::findOrFail($id);
             if ($request->has('name'))      $data->name = $request->input('name', $data->name);
             if ($request->has('content'))   $data->content = $request->input('content', $data->content);

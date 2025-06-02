@@ -38,6 +38,13 @@ class UserController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'email' => 'required|email|unique:users,email',
+                'first_name' => 'required|string',
+                'last_name' => 'required|string',
+                'nickname' => 'string',
+                'password' => 'required|string|confirmed'
+            ]);
             $first_name = $request->input('first_name', null);
             $last_name = $request->input('last_name', null);
             $nickname = $request->input('nickname', null) ?? $first_name . ' ' . $last_name;
@@ -69,6 +76,12 @@ class UserController extends Controller
             ], 401);
         }
         try {
+            $request->validate([
+                'first_name' => 'required|string',
+                'last_name' => 'required|string',
+                'nickname' => 'string',
+                'password' => 'required|string|confirmed'
+            ]);
             $data = User::findOrFail($id);
             $first_name = $request->input('first_name', $data->first_name);
             $last_name = $request->input('last_name', $data->last_name);
@@ -78,8 +91,8 @@ class UserController extends Controller
             $data->first_name = $first_name;
             $data->last_name = $last_name;
             if ($request->has('password'))  $data->password = Hash::make($request->input('password'));
-            if ($request->has('type'))      $data->type = $request->input('type', $data->type);
             $data->save();
+
             return response()->json([
                 'message' => 'User updated successfully',
                 'data' => $data
@@ -98,7 +111,7 @@ class UserController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         }
-        if(self::userData()->id == $id){
+        if (self::userData()->id == $id) {
             return response()->json([
                 'message' => 'You can`t delete your own account'
             ], 403);
