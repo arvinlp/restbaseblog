@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/v1/categories",
+     *     summary="لیست دسته‌بندی‌های اصلی (عمومی)",
+     *     tags={"Category"},
+     *     @OA\Response(response=200, description="لیست دسته‌بندی‌ها")
+     * )
+     */
     public function index(Request $request)
     {
         $data = $result = SearchFilter::apply($request, BlogCategory::where('status', 1)->where('parent_id', null));
@@ -16,6 +24,16 @@ class CategoryController extends Controller
         return response()->json($result, 200);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/categories/list",
+     *     summary="لیست دسته‌بندی‌ها (خصوصی)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Response(response=200, description="لیست دسته‌بندی‌ها"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت")
+     * )
+     */
     public function list(Request $request)
     {
         if (self::isUserLoggedIn() === false) {
@@ -29,6 +47,16 @@ class CategoryController extends Controller
         return response()->json($result, 200);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/categories/{id}",
+     *     summary="نمایش یک دسته‌بندی (عمومی)",
+     *     tags={"Category"},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Response(response=200, description="دسته‌بندی پیدا شد"),
+     *     @OA\Response(response=404, description="دسته‌بندی پیدا نشد")
+     * )
+     */
     public function show(Request $request, $id = null)
     {
         $result = BlogCategory::with(['parent', 'children'])->where('status', 1)->findOrFail($id);
@@ -37,6 +65,25 @@ class CategoryController extends Controller
         return response()->json($result, 200);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/v1/categories/new",
+     *     summary="ایجاد دسته‌بندی جدید (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name"},
+     *             @OA\Property(property="name", type="string"),
+     *             @OA\Property(property="content", type="string"),
+     *             @OA\Property(property="parent_id", type="integer")
+     *         )
+     *     ),
+     *     @OA\Response(response=201, description="دسته‌بندی با موفقیت ایجاد شد"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت")
+     * )
+     */
     public function create(Request $request)
     {
         if (self::isUserLoggedIn() === false) {
@@ -69,6 +116,28 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * @OA\Put(
+     *     path="/api/v1/categories/{id}",
+     *     summary="ویرایش دسته‌بندی (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name"},
+     *             @OA\Property(property="name", type="string"),
+     *             @OA\Property(property="content", type="string"),
+     *             @OA\Property(property="parent_id", type="integer"),
+     *             @OA\Property(property="status", type="integer")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="دسته‌بندی با موفقیت ویرایش شد"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت"),
+     *     @OA\Response(response=404, description="دسته‌بندی پیدا نشد")
+     * )
+     */
     public function update(Request $request, $id = null)
     {
         if (self::isUserLoggedIn() === false) {
@@ -100,6 +169,18 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * @OA\Delete(
+     *     path="/api/v1/categories/{id}",
+     *     summary="حذف دسته‌بندی (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Response(response=200, description="دسته‌بندی با موفقیت حذف شد"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت"),
+     *     @OA\Response(response=404, description="دسته‌بندی پیدا نشد")
+     * )
+     */
     public function delete($id = null)
     {
         if (self::isUserLoggedIn() === false) {
@@ -130,6 +211,17 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/categories/trashed/{id}",
+     *     summary="لیست دسته‌بندی‌های حذف‌شده (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Response(response=200, description="لیست دسته‌بندی‌های حذف‌شده"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت")
+     * )
+     */
     public function trashed(Request $request, $id = null)
     {
         if (self::isUserLoggedIn() === false) {
@@ -142,6 +234,18 @@ class CategoryController extends Controller
         return response()->json($data, 200);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/v1/categories/restore/{id}",
+     *     summary="بازیابی دسته‌بندی حذف‌شده (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Response(response=200, description="دسته‌بندی با موفقیت بازیابی شد"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت"),
+     *     @OA\Response(response=404, description="دسته‌بندی پیدا نشد")
+     * )
+     */
     public function restore($id)
     {
         if (self::isUserLoggedIn() === false) {
@@ -168,6 +272,18 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * @OA\Delete(
+     *     path="/api/v1/categories/force-delete/{id}",
+     *     summary="حذف دائمی دسته‌بندی (نیازمند احراز هویت)",
+     *     tags={"Category"},
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Response(response=200, description="دسته‌بندی با موفقیت به صورت دائمی حذف شد"),
+     *     @OA\Response(response=401, description="نیازمند احراز هویت"),
+     *     @OA\Response(response=404, description="دسته‌بندی پیدا نشد")
+     * )
+     */
     public function forceDelete($id = null)
     {
         if (self::isUserLoggedIn() === false) {
